@@ -1,0 +1,108 @@
+Numero de contribuidores:8469
+01-all_articles:59593
+02-unique_article:19867
+03-all_revision:40131
+07-articleTitle:List of compositions by Johann Sebastian Bach
+07-articleTitle:Roman Empire
+07-articleTitle:(null)
+10-article_timestamp:2014-10-26T04:50:23Z
+10-article_timestamp:2017-02-01T06:11:56Z
+10-article_timestamp:2016-12-20T04:02:33Z
+10-article_timestamp:(null)
+05-contributor_name:Bender the Bot
+05-contributor_name:(null)
+---------------------
+09-prefixos:
+Titulo : "Anaxagoras"
+Titulo : "Anaxarchus"
+Titulo : "Anaximander"
+Titulo : "Anaximenes of Lampsacus"
+Titulo : "Anaximenes of Miletus"
+---------------------
+09-prefixos:
+Titulo : "Anaxagoras"
+Titulo : "Anaxarchus"
+Titulo : "Anaximander"
+Titulo : "Anaximenes of Lampsacus"
+Titulo : "Anaximenes of Miletus"
+C 0: 28903366
+C 1: 13286072
+C 2: 27823944
+C 3: 27015025
+C 4: 194203
+C 5: 212624
+C 6: 7852030
+C 7: 7328338
+C 8: 7611264
+C 9: 14508071
+C 0: 28903366
+C 1: 13286072
+C 2: 27823944
+C 3: 27015025
+C 4: 194203
+C 5: 212624
+C 6: 7852030
+C 7: 7328338
+C 8: 7611264
+C 9: 14508071
+L 0: 15910
+L 1: 23235
+L 2: 11812
+L 3: 28678
+L 4: 14604
+L 5: 23440
+L 6: 26847
+L 7: 25507
+L 8: 26909
+L 9: 18166
+L 10: 4402
+L 11: 14889
+L 12: 23805
+L 13: 25391
+L 14: 7023
+L 15: 13224
+L 16: 12108
+L 17: 13913
+L 18: 23041
+L 19: 18048
+L 0: 15910
+L 1: 23235
+L 2: 11812
+L 3: 28678
+L 4: 14604
+L 5: 23440
+L 6: 26847
+L 7: 25507
+L 8: 26909
+L 9: 18166
+L 10: 4402
+L 11: 14889
+L 12: 23805
+L 13: 25391
+L 14: 7023
+L 15: 13224
+L 16: 12108
+L 17: 13913
+L 18: 23041
+L 19: 18048
+W 0: 15910
+W 1: 25507
+W 2: 23235
+W 3: 11812
+W 4: 13224
+W 5: 26847
+W 6: 14889
+W 7: 7023
+W 8: 14604
+W 9: 13289
+W 0: 15910
+W 1: 25507
+W 2: 23235
+W 3: 11812
+W 4: 13224
+W 5: 26847
+W 6: 14889
+W 7: 7023
+W 8: 14604
+W 9: 13289
+tempo 9.857872

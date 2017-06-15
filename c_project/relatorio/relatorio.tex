@@ -1,0 +1,1681 @@
+%% ================================================================================
+%% This LaTeX file was created by AbiWord.                                         
+%% AbiWord is a free, Open Source word processor.                                  
+%% More information about AbiWord is available at http://www.abisource.com/        
+%% ================================================================================
+
+\documentclass[a4paper,portrait,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+%% Please revise the following command, if your babel
+%% package does not support en-US
+\usepackage[en]{babel}
+\usepackage{color}
+\usepackage{hyperref}
+ 
+\begin{document}
+
+
+\begin{flushleft}
+Laboratórios de Informática III
+\end{flushleft}
+
+
+\begin{flushleft}
+Trabalho Prático no 1
+\end{flushleft}
+
+
+\begin{flushleft}
+Relatório de desenvolvimento
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+José Resende
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Miguel Lobo
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Patr\i{}́cia Barreira
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+(a77486)
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+(a78225)
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+(a79007)
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+1 de Maio de 2017
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Conteúdo
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+1 Introdução
+\end{flushleft}
+
+
+
+
+
+2
+
+
+
+
+
+\begin{flushleft}
+2 Concepção do problema
+\end{flushleft}
+
+
+
+
+
+3
+
+
+
+
+
+\begin{flushleft}
+3 Concepção da Solução
+\end{flushleft}
+
+
+
+
+
+4
+
+
+
+
+
+\begin{flushleft}
+4 Estruturas de Dados
+\end{flushleft}
+
+
+
+
+
+6
+
+
+
+
+
+4.1
+
+
+
+
+
+\begin{flushleft}
+TreeHash . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+\end{flushleft}
+
+
+
+
+
+7
+
+
+
+
+
+4.2
+
+
+
+
+
+\begin{flushleft}
+xmlArray . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+\end{flushleft}
+
+
+
+
+
+8
+
+
+
+
+
+4.3
+
+
+
+
+
+\begin{flushleft}
+CTree . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+\end{flushleft}
+
+
+
+
+
+8
+
+
+
+
+
+4.4
+
+
+
+
+
+\begin{flushleft}
+Heap . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+\end{flushleft}
+
+
+
+
+
+8
+
+
+
+
+
+\begin{flushleft}
+5 Desenvolvimento das Queries
+\end{flushleft}
+
+
+
+
+
+10
+
+
+
+
+
+\begin{flushleft}
+6 Otimização
+\end{flushleft}
+
+
+
+
+
+12
+
+
+
+
+
+6.1
+
+
+
+
+
+\begin{flushleft}
+Dificuldades e Superações . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+\end{flushleft}
+
+
+
+
+
+12
+
+
+
+
+
+\begin{flushleft}
+7 Modularidade
+\end{flushleft}
+
+
+
+
+
+14
+
+
+
+
+
+\begin{flushleft}
+8 Conclusão
+\end{flushleft}
+
+
+
+
+
+15
+
+
+
+
+
+1
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 1
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Introdução
+\end{flushleft}
+
+
+\begin{flushleft}
+Este trabalho prático tem como objetivo construir um sistema que permita analisar os artigos
+\end{flushleft}
+
+
+\begin{flushleft}
+presentes em backups da Wikipedia, realizados em diferentes meses, e extrair informação útil desse
+\end{flushleft}
+
+
+\begin{flushleft}
+per\i{}́odo de tempo, como por exemplo, o número de revisões ou ainda o número de novos artigos.
+\end{flushleft}
+
+
+\begin{flushleft}
+Os problemas foram repartidos em diferentes tarefas, tarefas estas que propunham uma forma
+\end{flushleft}
+
+
+\begin{flushleft}
+eficiente da resolução dado o volume de informação a tratar. Todo o código desenvolvido nas
+\end{flushleft}
+
+
+\begin{flushleft}
+diferentes tarefas era submetido através do repositório GIT e avaliado na plataforma criada pelos
+\end{flushleft}
+
+
+\begin{flushleft}
+docentes. Este relatório pretende sumarizar todos os parâmetros estudados e desenvolvidos durante
+\end{flushleft}
+
+
+\begin{flushleft}
+este projeto, bem como os passos que foram seguidos e tomados.
+\end{flushleft}
+
+
+
+
+
+2
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 2
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Concepção do problema
+\end{flushleft}
+
+
+\begin{flushleft}
+Pela análise do problema, foi poss\i{}́vel dividir as queries em 3 grupos distintos:
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\bullet$ Artigos
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Contribuidores
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Texto
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Nestes três grupos, chegou-se a conclusão que os id's é que iriam gerir a estrutura de dados.
+\end{flushleft}
+
+
+\begin{flushleft}
+Para as queries de artigos são necessários os respetivos id's, logo torna-se imperativo desenvolver uma estrutura de dados onde a procura de um artigo seja o mais rápido poss\i{}́vel. De notar
+\end{flushleft}
+
+
+\begin{flushleft}
+que cada artigo podia ter mais do que uma revisão, assim, é necessário implementar uma estrutura
+\end{flushleft}
+
+
+\begin{flushleft}
+de dados associada à estrutura de cada artigo capaz de armazenar as suas revisões únicas.
+\end{flushleft}
+
+
+\begin{flushleft}
+No caso das queries de contribuidores precisa-se de uma estrutura que guarde os nomes de
+\end{flushleft}
+
+
+\begin{flushleft}
+contribuidores , ids e número de contribuições dos mesmos.
+\end{flushleft}
+
+
+\begin{flushleft}
+Já para os textos, as queries focam-se no número de palavras e tamanho do texto. Por isso,
+\end{flushleft}
+
+
+\begin{flushleft}
+será necessário guardar numa estrutura, o número de palavras , número de carateres e por fim, id
+\end{flushleft}
+
+
+\begin{flushleft}
+e t\i{}́tulo de artigos.
+\end{flushleft}
+
+
+
+
+
+3
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 3
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Concepção da Solução
+\end{flushleft}
+
+
+\begin{flushleft}
+Decidiu-se implementar como estrutura principal uma estrutura composta por uma Hash Table,
+\end{flushleft}
+
+
+\begin{flushleft}
+em que cada posição da Hash Table é constitu\i{}́da por uma Árvore Binária Balanceada, sendo que
+\end{flushleft}
+
+
+\begin{flushleft}
+cada nodo desta, contém uma Lista Ligada.
+\end{flushleft}
+
+
+\begin{flushleft}
+A escolha desta estrutura assenta nos seguinte fatores:
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\bullet$ A forma como os artigos são organizados para a mesma posição da Hash Table é através de
+\end{flushleft}
+
+
+\begin{flushleft}
+uma Árvore Binária Balanceada com fator de comparação o id. A Hash Table foi criada com
+\end{flushleft}
+
+
+\begin{flushleft}
+intuito de reduzir o tempo de procura na Árvore Binária e, consequentemente, aumentar
+\end{flushleft}
+
+
+\begin{flushleft}
+o número de Árvores Binárias existentes. Este aumento conduz a uma redução das suas
+\end{flushleft}
+
+
+\begin{flushleft}
+alturas o que implica uma procura mais eficiente do artigo. Este tempo de procura em cada
+\end{flushleft}
+
+
+\begin{flushleft}
+árvore é O(logN) (em que N é o numero de nós da árvore, ou seja, número de artigos).
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Em cada nodo da Árvore de artigos (referida no ponto acima) será guardada informação
+\end{flushleft}
+
+
+\begin{flushleft}
+referente às suas revisões sob a forma de lista ligada.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Era necessário implementar uma estrutura eficiente com travessias, com intuito de preencher
+\end{flushleft}
+
+
+\begin{flushleft}
+estruturas auxiliares e ao mesmo tempo conseguir armazenar toda a informação necessária.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Para o caso do grupo de queries referentes aos artigos apenas se utilizou a estrutura principal,
+\end{flushleft}
+
+
+\begin{flushleft}
+visto que, através de uma simples travessia, é poss\i{}́vel obter a informação requerida.
+\end{flushleft}
+
+
+\begin{flushleft}
+No que toca ao grupo de queries associadas aos contribuidores, foi criada uma Árvore Binária
+\end{flushleft}
+
+
+\begin{flushleft}
+Balanceada, onde cada nodo contém uma estrutura CONT com imformação relativa aos nomes de
+\end{flushleft}
+
+
+\begin{flushleft}
+contribuidores, ids e número de contribuições dos mesmos. Foi ainda implementada uma MaxHeap
+\end{flushleft}
+
+
+
+
+
+4
+
+
+
+
+
+\begin{flushleft}
+\newpage
+com intuito de resolver a query referente aos Top contribuidores, uma vez que se trata de uma
+\end{flushleft}
+
+
+\begin{flushleft}
+estrutura de dados bastante eficiente para este tipo de interrogação.
+\end{flushleft}
+
+
+\begin{flushleft}
+Por fim, para o grupo das queries de texto, utilizou-se a estrutura principal e, para o caso em
+\end{flushleft}
+
+
+\begin{flushleft}
+que as interrogações eram do tipo Top, foi implementada uma MaxHeap.
+\end{flushleft}
+
+
+
+
+
+5
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 4
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Estruturas de Dados
+\end{flushleft}
+
+
+\begin{flushleft}
+Foi utilizada a biblioteca Glib para a implementação das estruturas utilizadas neste projeto. Em
+\end{flushleft}
+
+
+\begin{flushleft}
+baixo, encontra-se representada a estrutura que contém todas as estruturas implementadas ao
+\end{flushleft}
+
+
+\begin{flushleft}
+longo do projeto.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+typedef struct TCD\_istruct \{
+\end{flushleft}
+
+
+\begin{flushleft}
+TreeHash treeTable;
+\end{flushleft}
+
+
+\begin{flushleft}
+xmlArray xmlInfo;
+\end{flushleft}
+
+
+\begin{flushleft}
+CTree ContriTree;
+\end{flushleft}
+
+
+\begin{flushleft}
+Heap TopN;
+\end{flushleft}
+
+
+\begin{flushleft}
+Heap Top20;
+\end{flushleft}
+
+
+\begin{flushleft}
+long topCont[10];
+\end{flushleft}
+
+
+\begin{flushleft}
+long Atop20[20];
+\end{flushleft}
+
+
+\begin{flushleft}
+long *AtopN;
+\end{flushleft}
+
+
+\begin{flushleft}
+char *pref[1];
+\end{flushleft}
+
+
+\begin{flushleft}
+long numeroArtigos;
+\end{flushleft}
+
+
+\begin{flushleft}
+long numeroRevisoes;
+\end{flushleft}
+
+
+\begin{flushleft}
+long numeroTotal;
+\end{flushleft}
+
+
+\begin{flushleft}
+long numeroContributor;
+\end{flushleft}
+
+
+\begin{flushleft}
+\}*TAD\_istruct;
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Nas secções seguintes será detalhada cada uma das estruturas apresentadas em cima.
+\end{flushleft}
+
+
+
+
+
+6
+
+
+
+
+
+\newpage
+4.1
+
+
+
+
+
+\begin{flushleft}
+TreeHash
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Para a implementação da Hash Table utilizou-se a estrutura da Glib Pointer arrays. Para Árvores
+\end{flushleft}
+
+
+\begin{flushleft}
+Binárias Balanceadas foi utilizada a estrutura Balanced Binary Trees e, por fim, Singly-Linked
+\end{flushleft}
+
+
+\begin{flushleft}
+Lists para listas ligadas.
+\end{flushleft}
+
+
+\begin{flushleft}
+Posto isto, a estrutura apresenta a seguinte forma:
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\bullet$ TreeHash
+\end{flushleft}
+
+
+\begin{flushleft}
+typedef GPtrArray *TreeHash;
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Em cada \i{}́ndice desta TreeHash
+\end{flushleft}
+
+
+\begin{flushleft}
+typedef GTree *ArtTree;
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Em cada nodo da árvore tem-se:
+\end{flushleft}
+
+
+\begin{flushleft}
+typedef struct artigo \{
+\end{flushleft}
+
+
+\begin{flushleft}
+char *id;
+\end{flushleft}
+
+
+\begin{flushleft}
+char *titulo;
+\end{flushleft}
+
+
+\begin{flushleft}
+RevList revisao;
+\end{flushleft}
+
+
+\begin{flushleft}
+\}*ART;
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+typedef GSList *RevList;
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ Em cada RevList a estrutura das revisões é implementada da seguinte forma:
+\end{flushleft}
+
+
+\begin{flushleft}
+typedef struct revisao \{
+\end{flushleft}
+
+
+\begin{flushleft}
+char *id;
+\end{flushleft}
+
+
+7
+
+
+
+
+
+\begin{flushleft}
+\newpage
+char *timestamp;
+\end{flushleft}
+
+
+\begin{flushleft}
+char *content;
+\end{flushleft}
+
+
+\begin{flushleft}
+\}*REVISION;
+\end{flushleft}
+
+
+
+
+
+4.2
+
+
+
+
+
+\begin{flushleft}
+xmlArray
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Esta estrutura é usada com vista a guardar as árvores resultantes do parsing dos snapshots.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+typedef GPtrArray *xmlArray;
+\end{flushleft}
+
+
+
+
+
+4.3
+
+
+
+
+
+\begin{flushleft}
+CTree
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Estrutura que contém as informações dos contribuidores.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+typedef GTree *CTree;
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+typedef struct contribuidor \{
+\end{flushleft}
+
+
+\begin{flushleft}
+char *id;
+\end{flushleft}
+
+
+\begin{flushleft}
+int contN; //Numero de contribuicoes
+\end{flushleft}
+
+
+\begin{flushleft}
+char *nome;
+\end{flushleft}
+
+
+\begin{flushleft}
+\}*CONT;
+\end{flushleft}
+
+
+
+
+
+4.4
+
+
+
+
+
+\begin{flushleft}
+Heap
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Para as queries cuja finalidade é a obtenção dos top's decidiu-se que a melhor implementação seria
+\end{flushleft}
+
+
+\begin{flushleft}
+uma max-heap. Nesta, bastaria extrair a ra\i{}́z, reorganizar com vista a ficar o segundo maior na
+\end{flushleft}
+
+
+\begin{flushleft}
+raiz e repetir este processo até se extrair o número de elementos pretendidos. A struct elemento
+\end{flushleft}
+
+
+\begin{flushleft}
+foi criada com o intuito de reutilizar o código da heap para as três queries de top's.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+typedef struct elemento\{
+\end{flushleft}
+
+
+\begin{flushleft}
+char *id;
+\end{flushleft}
+
+
+\begin{flushleft}
+long count;
+\end{flushleft}
+
+
+\begin{flushleft}
+\}elem;
+\end{flushleft}
+
+
+
+
+
+8
+
+
+
+
+
+\begin{flushleft}
+\newpage
+typedef struct heap\{
+\end{flushleft}
+
+
+\begin{flushleft}
+int
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+size; /* Tamanho alocado para a Heap.*/
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+int
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+used; /* Número de elementos da Heap. */
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+elem *array;
+\end{flushleft}
+
+
+\begin{flushleft}
+\}*Heap;
+\end{flushleft}
+
+
+
+
+
+9
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 5
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Desenvolvimento das Queries
+\end{flushleft}
+
+
+\begin{flushleft}
+Para as queries all\_articles, unique\_articles e all\_revision, decidiu-se que estas deviam
+\end{flushleft}
+
+
+\begin{flushleft}
+ser resolvidas aquando do load uma vez que à medida que os artigos e as revisões são inseridos na
+\end{flushleft}
+
+
+\begin{flushleft}
+HashTable, facilmente se incrementava uma variável de contagem. Assim, houve a necessidade de
+\end{flushleft}
+
+
+\begin{flushleft}
+criar 3 variáveis numeroTotal, numeroArtigos e numeroRevisões na estrutura global TADistruct
+\end{flushleft}
+
+
+\begin{flushleft}
+que podem ser atualizadas no load e representam, respetivamente, o resultado das 3 queries. Assim
+\end{flushleft}
+
+
+\begin{flushleft}
+o tempo de resposta a estas 3 queries passa a ser O(1).
+\end{flushleft}
+
+
+\begin{flushleft}
+No caso das queries article\_title e article\_timestamp, basta calcular o hashcode do id
+\end{flushleft}
+
+
+\begin{flushleft}
+recebido como argumento e, percorrer a árvore até ao nodo em questão. A segunda query requer
+\end{flushleft}
+
+
+\begin{flushleft}
+ainda que se percorra a lista ligada até à revisão pretendida. Nestes casos ajudou bastante a criação
+\end{flushleft}
+
+
+\begin{flushleft}
+da HashTable uma vez que a árvore tem uma altura menor.
+\end{flushleft}
+
+
+\begin{flushleft}
+No que toca à query contributor\_name, a respetiva estrutura Árvore Binária Balanceada,
+\end{flushleft}
+
+
+\begin{flushleft}
+será adicionada à estrutura global TAD\_istruct de modo que quando é feito o load, esta árvore
+\end{flushleft}
+
+
+\begin{flushleft}
+seja carregada à medida que se percorre a árvore resultante do parsing. A pesquisa para encontrar
+\end{flushleft}
+
+
+\begin{flushleft}
+o nome do contribuidor através do id será então O(logN) em que N é o numero de contribuidores(nodos).
+\end{flushleft}
+
+
+\begin{flushleft}
+Relativamente às queries top\_10\_contributors, top\_20\_largest\_articles e
+\end{flushleft}
+
+
+\begin{flushleft}
+top\_N\_articles\_with\_more\_words, no que refere à primeira, basta percorrer a árvore dos contribuidores guardada na estrutura TAD\_istruct e, inserir na heap os respetivos valores. Estes
+\end{flushleft}
+
+
+\begin{flushleft}
+passos são acompanhados pela preservação do invariante em que o pai é sempre maior que os
+\end{flushleft}
+
+
+\begin{flushleft}
+respetivos filhos. O tamanho da heap é dada pela variável numeroContributor, pertencente à estrutura TAD\_istruct. Esta variável é incrementada durante o load à medida que são inseridos os
+\end{flushleft}
+
+
+
+
+
+10
+
+
+
+
+
+\begin{flushleft}
+\newpage
+contribuidores na árvore de Contribuidores. O resultado é então guardado na estrutura principal
+\end{flushleft}
+
+
+\begin{flushleft}
+TAD\_istruct como topCont, evitando assim percorrer a árvore de contribuidores e inserir na heap,
+\end{flushleft}
+
+
+\begin{flushleft}
+sempre que a query top\_10\_contributor é invocada. Esta metodologia adotada permite ainda
+\end{flushleft}
+
+
+\begin{flushleft}
+que o espaço alocado para a heap possa ser libertado depois da obtenção da informação requerida.
+\end{flushleft}
+
+
+\begin{flushleft}
+Para as restantes duas queries será aplicado o mesmo critério, contudo, para estes casos, é a Hash
+\end{flushleft}
+
+
+\begin{flushleft}
+Table que é percorrida. Em cada revisão do artigo, é contado o tamanho e o número de palavras
+\end{flushleft}
+
+
+\begin{flushleft}
+do texto (de uma só assentada). Estes 2 resultados são guardados num array de 2 posições e em
+\end{flushleft}
+
+
+\begin{flushleft}
+seguida são criadas 2 max-heaps (Top20 e TopN ), uma para cada query. Evitando assim, mais
+\end{flushleft}
+
+
+\begin{flushleft}
+uma vez, pesquisas excessivas na estrutura Hash Table.
+\end{flushleft}
+
+
+\begin{flushleft}
+Por fim, na query titles\_with\_prefix é aplicada a função prefix\_titles\_art a cada um
+\end{flushleft}
+
+
+\begin{flushleft}
+dos artigos, recorrendo à instrução foreach. Esta função, para ter compatibilidade com a Glib,
+\end{flushleft}
+
+
+\begin{flushleft}
+recebe o mesmo artigo nos seus dois primeiros argumentos, o key e o value, e no último argumento,
+\end{flushleft}
+
+
+\begin{flushleft}
+uma struct Data. Esta estrutura foi criada com o intuito de transportar:
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+$\bullet$ [r] Apontador para lista de t\i{}́tulos que se encontra na TAD\_istruct, que será a resposta da
+\end{flushleft}
+
+
+\begin{flushleft}
+query.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ [used] Número de t\i{}́tulos que se encontram na lista incluindo, no final, NULL.
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ [size] Espaço dispon\i{}́vel para a inserção de t\i{}́tulos na lista (exclu\i{}́ndo o NULL).
+\end{flushleft}
+
+
+\begin{flushleft}
+$\bullet$ [prefix] Prefixo a ser procurado.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+A função prefix\_titles\_art verifica se cada artigo contém o prefixo no t\i{}́tulo e, em caso
+\end{flushleft}
+
+
+\begin{flushleft}
+positivo, adiciona-o a r, através da instrução append.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Numa tentativa de otimizar a query,
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+experimentou-se inserir os t\i{}́tulos na lista, tendo esta sido previamente ordenada recorrendo à
+\end{flushleft}
+
+
+\begin{flushleft}
+função insertString. No entanto, não foi poss\i{}́vel obter um n\i{}́vel de eficiência superior. A melhor solução passou então por ordenar a lista no final do algoritmo através da função qsort da
+\end{flushleft}
+
+
+\begin{flushleft}
+stdlib.
+\end{flushleft}
+
+
+
+
+
+11
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 6
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Otimização
+\end{flushleft}
+
+
+\begin{flushleft}
+Para esta secção, as escolhas mais óbvias foram a utilização da biblioteca Glib para a implementação
+\end{flushleft}
+
+
+\begin{flushleft}
+das estruturas de dados utilizadas. E também a utilização da API OpenMP para a introdução
+\end{flushleft}
+
+
+\begin{flushleft}
+de paralelismo. Outro aspeto considerado importante foi a utilização de uma Max-Heap como
+\end{flushleft}
+
+
+\begin{flushleft}
+estrutura auxiliar das queries que envolviam o prefixo top's.
+\end{flushleft}
+
+
+
+
+
+6.1
+
+
+
+
+
+\begin{flushleft}
+Dificuldades e Superações
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+A utilização da Glib levantou algumas dificuldades. De realçar a composição entre as estruturas,
+\end{flushleft}
+
+
+\begin{flushleft}
+nomeadamente entre Hash Table onde em cada posição desta temos uma Árvore Binária Balanceada e em cada nodo existe ainda uma Lista Ligada. Isto aliado ao facto do grupo de trabalho não
+\end{flushleft}
+
+
+\begin{flushleft}
+estar habituado a implementar e utilizar funções genéricas, introduziu uma certa complexidade à
+\end{flushleft}
+
+
+\begin{flushleft}
+resolução do problema.
+\end{flushleft}
+
+
+\begin{flushleft}
+Já em relação ao OpenMP a principal dificuldade residiu em encontrar partes do código que
+\end{flushleft}
+
+
+\begin{flushleft}
+não sejam interdependentes. Assim, decidimos unicamente aplicar a diretiva OpenMP às árvores
+\end{flushleft}
+
+
+\begin{flushleft}
+criadas no parsing dos inúmeros ficheiros (snapshots) através da xmllib, onde é criada uma árvore
+\end{flushleft}
+
+
+\begin{flushleft}
+para cada snapshot. De notar que tudo isto só foi poss\i{}́vel graças à compatibilidade da xmllib
+\end{flushleft}
+
+
+\begin{flushleft}
+com paralelismo.
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+xmlArray parseMult(xmlArray array, int N, char *filename[N])\{
+\end{flushleft}
+
+
+\begin{flushleft}
+int i;
+\end{flushleft}
+
+
+\begin{flushleft}
+if(array != NULL)\{
+\end{flushleft}
+
+
+\begin{flushleft}
+\#pragma omp parallel for
+\end{flushleft}
+
+
+12
+
+
+
+
+
+\begin{flushleft}
+\newpage
+for(i = 0 ; i $<$ N ; i++)
+\end{flushleft}
+
+
+\begin{flushleft}
+g\_ptr\_array\_add(array, parse(filename[i]));
+\end{flushleft}
+
+
+\begin{flushleft}
+g\_ptr\_array\_set\_size (array, N);
+\end{flushleft}
+
+
+\}
+
+
+\begin{flushleft}
+return array;
+\end{flushleft}
+
+
+\}
+
+
+
+
+
+\begin{flushleft}
+Assim consegui-se um real time de aproximadamente 6segundos e um user time de aproximadamente 10segundos. Houve uma melhoria do real time e um aumento no user time porque o
+\end{flushleft}
+
+
+\begin{flushleft}
+processo está ligado ao CPU e aproveita a execução paralela em vários núcleos/CPUs, enquanto
+\end{flushleft}
+
+
+\begin{flushleft}
+que sem openMP o real time era aproximadamente igual ao user time porque o processo está ligado
+\end{flushleft}
+
+
+\begin{flushleft}
+ao CPU e não tem qualquer vantagem de execução em paralelo.
+\end{flushleft}
+
+
+\begin{flushleft}
+Por último em relação à Max-Heap, esta foi escolhida com intuito de evitar criar um Array
+\end{flushleft}
+
+
+\begin{flushleft}
+com todos os id's e o número que dita a ordem (e.g. número de contribuições dos contribuidores)
+\end{flushleft}
+
+
+\begin{flushleft}
+e consequentemente ordena-lo para retornar os n maiores. A Max-Heap é então uma melhor
+\end{flushleft}
+
+
+\begin{flushleft}
+alternativa.
+\end{flushleft}
+
+
+
+
+
+13
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 7
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Modularidade
+\end{flushleft}
+
+
+\begin{flushleft}
+Atendendo à dimensão do projeto, foi necessária uma organização cuidada do código para que
+\end{flushleft}
+
+
+\begin{flushleft}
+este seja controlável e leg\i{}́vel, em todas as suas fases (desenvolvimento, teste e manutenção). O
+\end{flushleft}
+
+
+\begin{flushleft}
+projeto foi dividido em 3 partes essenciais: load, init e parse. No load os dados são carregados
+\end{flushleft}
+
+
+\begin{flushleft}
+para a estrutura, no init as estruturas são inicializadas e, por fim, no parse é feito o parsing dos
+\end{flushleft}
+
+
+\begin{flushleft}
+snapshots através da biblioteca xmlib.
+\end{flushleft}
+
+
+\begin{flushleft}
+As queries foram organizadas nos seus 3 grandes tipos: artigos, contribuidores e textos. As
+\end{flushleft}
+
+
+\begin{flushleft}
+estruturas auxiliares surgem num novo módulo bem como o clean.
+\end{flushleft}
+
+
+
+
+
+14
+
+
+
+
+
+\begin{flushleft}
+\newpage
+Cap\i{}́tulo 8
+\end{flushleft}
+
+
+
+
+
+\begin{flushleft}
+Conclusão
+\end{flushleft}
+
+
+\begin{flushleft}
+As queries implementadas respondem aos requisitos impostos pelo enunciado, pelo que este grupo
+\end{flushleft}
+
+
+\begin{flushleft}
+de trabalho se considera sobremaneira satisfeito. É no entanto, evidente, que muitas outras otimizações poderiam ser acrescentadas, tanto na função que conta as palavras e tamanho de um
+\end{flushleft}
+
+
+\begin{flushleft}
+texto como uma maior aposta no paralelismo. Seria portanto desejável, como exerc\i{}́cio futuro,
+\end{flushleft}
+
+
+\begin{flushleft}
+implementar a função count, integrando, por exemplo, a diretiva openMP, etc.Existem portanto
+\end{flushleft}
+
+
+\begin{flushleft}
+diversas formas de continuar o trabalho que aqui foi produzido, todas elas revestidas de utilidade
+\end{flushleft}
+
+
+\begin{flushleft}
+prática.
+\end{flushleft}
+
+
+
+
+
+15
+
+
+
+
+
+\newpage
+
+
+
+\end{document}
